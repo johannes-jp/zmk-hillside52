@@ -1,0 +1,84 @@
+#include <behaviours.dtsi>
+#include <behaviours.dtsi>
+
+#include <zmk-helpers/helper.h>
+#include <zmk-helpers/key-labels/hillside52.h>
+
+#define ___ &trans
+// used for better text visualization
+
+#define DEFAULT 0
+#define NUMBER 1
+// number layer including calc functions - should be fully left-hand operable
+#define SYMBOL 3
+// symbol layer. top row should emulate standard keyboard symbols. 
+#define SYSTEM 4
+// system/adjustment layer. bluetooth profiles, sound, brightness, etc.
+#define WINDOWS 5
+// a deeper gui layer for windows or powertoys commands
+// may establish custom mappings for linux to avoid the need for a linux or vim layer
+#define ALTERNATE 6
+// alternative alpha layout, likely qwerty or colemak_dh
+#define GAMING 7
+// gaming layer, removing or altering many smart functions/combos for reliable inputs
+#define MOUSE 8
+// mouse layer
+
+/* Nordic unicode characters and their capitals */
+ZMK_UNICODE_PAIR(no_aa,   N0, N0, E,  N1,   N0, N0, C,  N1) //  á
+ZMK_UNICODE_PAIR(no_ea,   N0, N0, E,  N9,   N0, N0, C,  N9) //  é
+ZMK_UNICODE_PAIR(no_ia,   N0, N0, E,  D,    N0, N0, C,  D)  //  í
+ZMK_UNICODE_PAIR(no_oa,   N0, N0, F,  N3,   N0, N0, D,  N3) //  ó 
+ZMK_UNICODE_PAIR(no_ua,   N0, N0, F,  A,    N0, N0, D,  A)  //  ú
+ZMK_UNICODE_PAIR(no_ya,   N0, N0, F,  D,    N0, N0, D,  D)  //  ý
+ZMK_UNICODE_PAIR(no_ae,   N0, N0, E,  N6,   N0, N0, C,  N6) //  æ
+ZMK_UNICODE_PAIR(no_od,   N0, N0, F,  N6,   N0, N0, D,  N6) //  ö
+ZMK_UNICODE_PAIR(no_ad,   N0, N0, E,  N4,   N0, N0, C,  N4) //  ä
+ZMK_UNICODE_PAIR(no_thorn,  N0, N0, F,  E,  N0, N0, D,  E)  //  þ 
+ZMK_UNICODE_PAIR(no_eth,  N0, N0, F,  N0,   N0, N0, D,  N0) //  ð
+ZMK_UNICODE_PAIR(no_ao,   N0, N0, E,  N5,   N0, N0, C,  N5) //  å
+
+/* Other special characters */
+ZMK_UNICODE_SINGLE(curr_euro, N2, N0, A, C)  // €
+ZMK_UNICODE_SINGLE(sym_section, N0, N0, A, 7)  // §
+ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
+
+/* Timeless homerow mods */
+// https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
+#define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left hand
+#define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right hand
+#define THUMBS LH1 LH0 RH0 RH1                                              // thumbs
+
+ZMK_HOLD_TAP(hml,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    require-prior-idle-ms = <150>;
+    hold-trigger-key-positions = <KEYS_R THUMBS>;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+
+ZMK_HOLD_TAP(hmr,
+    flavor = "balanced";
+    tapping-term-ms = <280>;
+    require-prior-idle-ms = <150>;
+    hold-trigger-key-positions = <KEYS_L THUMBS>;
+    hold-trigger-on-release;
+    bindings = <&kp>, <&kp>;
+)
+
+/* Hillside 52 layout
+ ╭─────────────────────────╮               ╭─────────────────────────╮
+ │ LT5 LT4 LT3 LT2 LT1 LT0 │               │ RT0 RT1 RT2 RT3 RT4 RT5 │
+ │ LM5 LM4 LM3 LM2 LM1 LM0 ╰──╮         ╭──╯ RM0 RM1 RM2 RM3 RM4 RM5 │
+ │ LB5 LB4 LB3 LB2 LB1 LB0 LH4╰────┬────╯RH4 RB0 RB1 RB2 RB3 RB4 RB5 │
+ │ LP2 LP1 LP0╭───╮LH3 LH2 LH1 LH0 │ RH0 RH1 RH2 RH3╭───╮RP0 RP1 RP2 │
+ ╰────────────╯   ╰────────────────┴────────────────╯   ╰────────────╯
+*/
+
+ZMK_LAYER(default_layer,
+&kp  GRAVE    &kp  Q        &kp  W        &kp  E        &kp  R        &kp  T                                                                         &kp  Y        &kp  U        &kp  I        &kp  O        &kp  P        &kp  BSPC
+&kp  TAB      &kp  A        &kp  S        &kp  D        &kp  F        &kp  G                                                                         &kp  H        &kp  J        &kp  K        &kp  L        &kp  SEMI     &kp  ENTER
+&kp  LSHFT    &kp  Z        &kp  X        &kp  C        &kp  V        &kp  B        &kp  SQT                                           &kp  SLASH    &kp  N        &kp  M        &kp  COMMA    &kp  DOT      &kp  UP       &kp  RSHFT
+&kp  C_MUTE   &kp  ESC      &kp  LCTRL                  &kp  LGUI     &kp  LALT     &sk  LSHIFT    &mo  NAV_L            &mo  SYM_L    &kp  SPACE    &kp  LALT     &kp  RGUI                   &kp  LEFT     &kp  DOWN     &kp  RIGHT
+)
