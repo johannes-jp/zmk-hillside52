@@ -34,24 +34,15 @@
     require-prior-idle-ms = <125>;
 };
 
-/* Nordic unicode characters and their capitals */
-ZMK_UNICODE_PAIR(no_aa,   N0, N0, E,  N1,   N0, N0, C,  N1) //  á
-ZMK_UNICODE_PAIR(no_ea,   N0, N0, E,  N9,   N0, N0, C,  N9) //  é
-ZMK_UNICODE_PAIR(no_ia,   N0, N0, E,  D,    N0, N0, C,  D)  //  í
-ZMK_UNICODE_PAIR(no_oa,   N0, N0, F,  N3,   N0, N0, D,  N3) //  ó 
-ZMK_UNICODE_PAIR(no_ua,   N0, N0, F,  A,    N0, N0, D,  A)  //  ú
-ZMK_UNICODE_PAIR(no_ya,   N0, N0, F,  D,    N0, N0, D,  D)  //  ý
-ZMK_UNICODE_PAIR(no_ae,   N0, N0, E,  N6,   N0, N0, C,  N6) //  æ
-ZMK_UNICODE_PAIR(no_od,   N0, N0, F,  N6,   N0, N0, D,  N6) //  ö
-ZMK_UNICODE_PAIR(no_ad,   N0, N0, E,  N4,   N0, N0, C,  N4) //  ä
-ZMK_UNICODE_PAIR(no_thorn,  N0, N0, F,  E,  N0, N0, D,  E)  //  þ 
-ZMK_UNICODE_PAIR(no_eth,  N0, N0, F,  N0,   N0, N0, D,  N0) //  ð
-ZMK_UNICODE_PAIR(no_ao,   N0, N0, E,  N5,   N0, N0, C,  N5) //  å
 
-/* Other special characters */
-ZMK_UNICODE_SINGLE(curr_euro, N2, N0, A, C)  // €
-ZMK_UNICODE_SINGLE(sym_section, N0, N0, A, 7)  // §
-ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
+/* Behaviors
+ZMK_HOLD_TAP(hwu,
+    tapping-term-ms = <200>;
+    #binding-cells = <2>
+    require-prior-idle-ms = <125>;
+    hold-while-undecided
+    bindings = <&kp>, <&kp>;
+) */
 
 /* Timeless homerow mods */
 // https://github.com/urob/zmk-config/tree/main#timeless-homerow-mods
@@ -76,6 +67,25 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 #define ZMK_COMBO_8(NAME, TAP, KEYPOS, LAYERS, COMBO_TERM, COMBO_IDLE, HOLD, SIDE) \
     MAKE_HRM(hm_combo_ ## NAME, &kp, TAP, SIDE THUMBS) \
     ZMK_COMBO_6(NAME, &hm_combo_ ## NAME HOLD 0, KEYPOS, LAYERS, COMBO_TERM, COMBO_IDLE)
+
+/* Nordic unicode characters and their capitals */
+ZMK_UNICODE_PAIR(no_aa,   N0, N0, E,  N1,   N0, N0, C,  N1) //  á
+ZMK_UNICODE_PAIR(no_ea,   N0, N0, E,  N9,   N0, N0, C,  N9) //  é
+ZMK_UNICODE_PAIR(no_ia,   N0, N0, E,  D,    N0, N0, C,  D)  //  í
+ZMK_UNICODE_PAIR(no_oa,   N0, N0, F,  N3,   N0, N0, D,  N3) //  ó 
+ZMK_UNICODE_PAIR(no_ua,   N0, N0, F,  A,    N0, N0, D,  A)  //  ú
+ZMK_UNICODE_PAIR(no_ya,   N0, N0, F,  D,    N0, N0, D,  D)  //  ý
+ZMK_UNICODE_PAIR(no_ae,   N0, N0, E,  N6,   N0, N0, C,  N6) //  æ
+ZMK_UNICODE_PAIR(no_od,   N0, N0, F,  N6,   N0, N0, D,  N6) //  ö
+ZMK_UNICODE_PAIR(no_ad,   N0, N0, E,  N4,   N0, N0, C,  N4) //  ä
+ZMK_UNICODE_PAIR(no_thorn,  N0, N0, F,  E,  N0, N0, D,  E)  //  þ 
+ZMK_UNICODE_PAIR(no_eth,  N0, N0, F,  N0,   N0, N0, D,  N0) //  ð
+ZMK_UNICODE_PAIR(no_ao,   N0, N0, E,  N5,   N0, N0, C,  N5) //  å
+
+/* Other special characters */
+ZMK_UNICODE_SINGLE(curr_euro, N2, N0, A, C)  // €
+ZMK_UNICODE_SINGLE(sym_section, N0, N0, A, 7)  // §
+ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 
 #include "combos.dtsi"
 #include "mouse.dtsi"
@@ -131,13 +141,11 @@ MAKE_HRM(hmr, &kp, &kp, KEYS_L THUMBS)  // right-hand HRMs
 */
 
 ZMK_LAYER(DEFAULT,
-&lt 7 GRAVE      &kp Q       &kp W         &kp F  &kp P              &kp B                                                                                                                    &kp J     &kp L     &kp U      &kp Y       &kp SEMI  &kp BSPC
-&mt LG(TAB) TAB  &kp A       &kp R         &kp S  &kp T              &kp G                                                                                                                    &kp M     &kp N     &kp E      &kp I       &kp O     &kp ENTER
-&kp BACKSPACE    &kp Z       &kp X         &kp C  &kp D              &kp V               &mt LEFT_ALT APOSTROPHE                                                                   &kp SLASH  &kp K     &kp H     &kp COMMA  &kp PERIOD  &kp UP    &kp RSHFT
-&kp DELETE       &mt TASK_VIEW ESCAPE  &kp LEFT_WIN         MEH  &lt 3 LEFT_BRACKET  &hold_while_undecided LEFT_SHIFT SPACE  &hold_while_undecided LCTRL RIGHT_BRACKET  &mo 4  &kp SPACE  &kp LALT  &kp RGUI             &kp LEFT    &kp DOWN  &kp RIGHT
+&lt 7 GRAVE         &kp Q                   &kp W           &kp F           &kp P               &kp B                                                       &kp J       &kp L       &kp U      &kp Y       &kp SEMI  &kp BSPC
+&mt LG(TAB) TAB     &hml LGUI A             &hml LALT R     &hml LSHFT S    &hml LCTRL T        &kp G                                                       &kp M       &kp N       &kp E      &kp I       &kp O     &kp ENTER
+&kp BACKSPACE       &kp Z                   &kp X           &kp C           &kp D               &kp V               &mt LALT APOSTROPHE         &kp SLASH   &kp K       &kp H       &kp COMMA  &kp PERIOD  &kp UP    &kp RSHFT
+&kp DELETE          &mt TASK_VIEW ESCAPE    &kp LGUI        MEH             &lt 3 LBKT          &mt LSHFT SPACE     &mt LCTRL RBKT              &mo 4       &kp SPACE   &kp LALT    &kp RGUI             &kp LEFT    &kp DOWN  &kp RIGHT
 )
-            //            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN &inc_dec_kp PG_UP PG_DN>;
-        };
 
 ZMK_LAYER(NUMBER,
 &kp BACKSPACE  &kp PLUS          &kp N7      &kp N8  &kp N9  &kp N0                                             &kp PG_UP  &kp F9  &kp F10  &kp F11     &kp F12           &kp K_CALC
