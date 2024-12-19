@@ -84,8 +84,8 @@ ZMK_UNICODE_SINGLE(curr_euro, N2, N0, A, C)  // €
 ZMK_UNICODE_SINGLE(sym_section, N0, N0, A, 7)  // §
 ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 
-#include "combos.dtsi"
-#include "mouse.dtsi"
+// #include "combos.dtsi"
+// #include "mouse.dtsi"
 
 #define DEFAULT 0
 //colemak_dh layer for me
