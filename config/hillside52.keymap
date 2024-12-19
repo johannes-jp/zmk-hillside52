@@ -1,4 +1,4 @@
-#include <behaviours.dtsi>
+#include <dt-bindings/zmk/behaviours.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
