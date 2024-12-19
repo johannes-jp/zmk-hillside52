@@ -13,6 +13,8 @@
 // disabled key alias
 
 /* Global Settings */
+#define QUICK_TAP_MS 175
+
 &sk {  // sticky-key config
     release-after-ms = <900>;  
     quick-release;             // no double capitalization when rolling keys
