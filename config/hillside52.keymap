@@ -94,23 +94,6 @@ ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 // #include "combos.dtsi"
 // #include "mouse.dtsi"
 
-#define DEF 0
-//colemak_dh layer for me
-# define ALT 1
-//alternate alpha layer, qwerty for me
-#define NUM 2
-// number layer including calc functions - should be fully left-hand operable
-#define SYM 3
-// symbol layer. top row should emulate standard keyboard symbols 
-#define SYS 4
-// system/adjustment layer. bluetooth profiles, sound, brightness, etc.
-#define MOUSE 5
-// mouse layer
-#define WIN 6
-// a deeper gui layer for windows or powertoys commands
-#define GAMING 7
-// gaming layer, removing or altering many smart functions/combos for reliable inputs
-
 /* Hotkey Aliases */
 #define DSK_R &kp LG(LC(RIGHT))
 #define DSK_L &kp LG(LC(LEFT))
@@ -126,6 +109,23 @@ ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 #define WAKE &kp LG(LC(LS(B)))
 #define LOCK &kp LG(L)
 #define COPILOT &kp F23
+
+#define DEF 0
+//colemak_dh layer for me
+# define ALT 1
+//alternate alpha layer, qwerty for me
+#define NUM 2
+// number layer including calc functions - should be fully left-hand operable
+#define SYM 3
+// symbol layer. top row should emulate standard keyboard symbols 
+#define SYS 4
+// system/adjustment layer. bluetooth profiles, sound, brightness, etc.
+#define WIN 5
+// a deeper gui layer for windows or powertoys commands
+#define GAMING 6
+// gaming layer, removing or altering many smart functions/combos for reliable inputs
+#define MOUSE 7
+// mouse layer
 
 /* Hillside 52 layout
  ╭─────────────────────────╮               ╭─────────────────────────╮
@@ -144,13 +144,21 @@ ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 ╰────────────╯   ╰────────────────┴────────────────╯   ╰────────────╯
 */
 
-ZMK_LAYER(base,
+ZMK_LAYER(default,
     &lt WIN GRAVE       &kp Q                   &kp W           &kp F               &kp P               &kp B                                                       &kp J       &kp L       &kp U       &kp Y       &kp SEMI    &kp BSPC
     &mt LG(TAB) TAB     &hml LGUI A             &hml LALT R     &hml LSHFT S        &hml LCTRL T        &kp G                                                       &kp M       &kp N       &kp E       &kp I       &kp O       &kp ENTER
     &kp BACKSPACE       &kp Z                   &kp X           &kp C               &kp D               &kp V               &mt LALT APOSTROPHE         &kp SLASH   &kp K       &kp H       &kp COMMA   &kp PERIOD  &kp UP      &kp RSHFT
     &kp DELETE          &mt TASK_VIEW ESCAPE    &kp LGUI        &kp LC(LA(LSHFT))   &lt NUM LBKT        &mt LSHFT SPACE     &mt LCTRL RBKT              &mo SYM     &kp SPACE   &kp LALT    &kp RGUI    &kp LEFT    &kp DOWN    &kp RIGHT
 )
 
+/*
+ZMK_LAYER(alternate,
+    &kp GRAVE   &kp Q    &kp W         &kp E  &kp R              &kp T                                                                                                                &kp Y     &kp U     &kp I      &kp O     &kp P     &kp BSPC
+    &kp TAB     &kp A    &kp S         &kp D  &kp F              &kp G                                                                                                                &kp H     &kp J     &kp K      &kp L     &kp SEMI  &kp ENTER
+    &kp LSHFT   &kp Z    &kp X         &kp C  &kp V              &kp B               &mt LEFT_ALT SQT                                                                      &kp SLASH  &kp N     &kp M     &kp COMMA  &kp DOT   &kp UP    &kp RSHFT
+    &kp C_MUTE  &kp ESC  &kp LEFT_GUI         &kp LS(LA(LCTRL))  &lt NUM LEFT_BRACKET  &mt LSHIFT SPACE  &mt LCTRL RIGHT_BRACKET  &mo SYM  &kp SPACE  &kp LALT  &kp RGUI             &kp LEFT  &kp DOWN  &kp RIGHT
+)
+*/
 
 ZMK_LAYER(number,
     &kp BACKSPACE  &kp PLUS          &kp N7         &kp N8  &kp N9      &kp N0                                             &kp PG_UP  &kp F9  &kp F10  &kp F11     &kp F12           &kp K_CALC
@@ -178,13 +186,6 @@ ZMK_LAYER(windows,
     &trans  &trans      &kp LG(N1)  &kp LG(N2)  &kp LG(N3)                     &kp LG(N4)                                                                              &trans  &kp LG(H)           &kp LG(J)       &kp LG(K)               &kp LG(L)               &kp LG(LC(LS(RIGHT)))
     &trans  &trans      &trans      &trans      &mt LC(F4) LG(LC(D))           &trans                            &kp DOUBLE_QUOTES                             &trans  &trans  &trans              &trans          &trans                  &kp LG(LS(LA(LC(N8))))  &trans
     &trans  &trans      &trans                  &trans                         &kp LG(LC(LEFT))                  &kp LA(SPACE)      &kp LC(LG(RIGHT))  &trans  &trans  &trans  &trans                              &kp LG(LA(LS(LC(N4))))  &kp LG(LS(LC(LA(N2))))  &kp LG(LA(LS(LC(N6))))
-)
-
-ZMK_LAYER(alternate,
-    &kp GRAVE   &kp Q    &kp W         &kp E  &kp R              &kp T                                                                                                                &kp Y     &kp U     &kp I      &kp O     &kp P     &kp BSPC
-    &kp TAB     &kp A    &kp S         &kp D  &kp F              &kp G                                                                                                                &kp H     &kp J     &kp K      &kp L     &kp SEMI  &kp ENTER
-    &kp LSHFT   &kp Z    &kp X         &kp C  &kp V              &kp B               &mt LEFT_ALT SQT                                                                      &kp SLASH  &kp N     &kp M     &kp COMMA  &kp DOT   &kp UP    &kp RSHFT
-    &kp C_MUTE  &kp ESC  &kp LEFT_GUI         &kp LS(LA(LCTRL))  &lt NUM LEFT_BRACKET  &mt LSHIFT SPACE  &mt LCTRL RIGHT_BRACKET  &mo SYM  &kp SPACE  &kp LALT  &kp RGUI             &kp LEFT  &kp DOWN  &kp RIGHT
 )
 
 ZMK_LAYER(gaming,
