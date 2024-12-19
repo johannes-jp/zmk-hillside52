@@ -112,7 +112,7 @@ ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 
 #define DEF 0
 //colemak_dh layer for me
-# define ALT 1
+#define ALT 1
 //alternate alpha layer, qwerty for me
 #define NUM 2
 // number layer including calc functions - should be fully left-hand operable
@@ -151,27 +151,25 @@ ZMK_LAYER(default_layer,
     &kp DELETE          &mt TASK_VIEW ESCAPE    &kp LGUI        &kp LC(LA(LSHFT))   &lt NUM LBKT        &mt LSHFT SPACE     &mt LCTRL RBKT              &mo SYM     &kp SPACE   &kp LALT    &kp RGUI    &kp LEFT    &kp DOWN    &kp RIGHT
 )
 
-/*
 ZMK_LAYER(alternate_layer,
-    &kp GRAVE   &kp Q    &kp W         &kp E  &kp R              &kp T                                                                                                                &kp Y     &kp U     &kp I      &kp O     &kp P     &kp BSPC
-    &kp TAB     &kp A    &kp S         &kp D  &kp F              &kp G                                                                                                                &kp H     &kp J     &kp K      &kp L     &kp SEMI  &kp ENTER
-    &kp LSHFT   &kp Z    &kp X         &kp C  &kp V              &kp B               &mt LEFT_ALT SQT                                                                      &kp SLASH  &kp N     &kp M     &kp COMMA  &kp DOT   &kp UP    &kp RSHFT
-    &kp C_MUTE  &kp ESC  &kp LEFT_GUI         &kp LS(LA(LCTRL))  &lt NUM LEFT_BRACKET  &mt LSHIFT SPACE  &mt LCTRL RIGHT_BRACKET  &mo SYM  &kp SPACE  &kp LALT  &kp RGUI             &kp LEFT  &kp DOWN  &kp RIGHT
+    &kp GRAVE   &kp Q    &kp W          &kp E               &kp R                   &kp T                                                               &kp Y       &kp U     &kp I         &kp O     &kp P     &kp BSPC
+    &kp TAB     &kp A    &kp S          &kp D               &kp F                   &kp G                                                               &kp H       &kp J     &kp K         &kp L     &kp SEMI  &kp ENTER
+    &kp LSHFT   &kp Z    &kp X          &kp C               &kp V                   &kp B               &mt LEFT_ALT SQT                    &kp SLASH   &kp N       &kp M     &kp COMMA     &kp DOT   &kp UP    &kp RSHFT
+    &kp DELETE  &kp ESC  &kp LEFT_GUI   &kp LS(LA(LCTRL))   &lt NUM LEFT_BRACKET    &mt LSHIFT SPACE    &mt LCTRL RIGHT_BRACKET             &mo SYM     &kp SPACE   &kp LALT  &kp RGUI      &kp LEFT  &kp DOWN  &kp RIGHT
 )
-*/
 
 ZMK_LAYER(number_layer,
-    &kp BACKSPACE  &kp PLUS          &kp N7         &kp N8  &kp N9      &kp N0                                             &kp PG_UP  &kp F9  &kp F10  &kp F11     &kp F12           &kp K_CALC
-    &kp BACKSLASH  &kp MINUS         &kp N4         &kp N5  &kp N6      &kp SLASH                                              &kp PG_UP  &kp F5  &kp F6   &kp F7      &kp F8            &tog NUM
-    &kp COMMA      &kp PERIOD        &kp N1         &kp N2  &kp N3      &kp ASTRK  &kp EQUAL                        &trans      &kp PG_DN  &kp F1  &kp F2   &kp F3      &kp F4            &kp PG_DN
-    &kp C_PREV     &kp C_PLAY_PAUSE  &kp C_NEXT     &trans  &trans      &kp LEFT_ALT  &trans  &kp HOME  &trans      &kp END     &trans           &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT
+    &kp BACKSPACE  &kp PLUS          &kp N7         &kp N8  &kp N9      &kp N0                                              &kp PG_UP   &kp F9      &kp F10     &kp F11     &kp F12           &kp K_CALC
+    &kp BACKSLASH  &kp MINUS         &kp N4         &kp N5  &kp N6      &kp SLASH                                           &kp PG_UP   &kp F5      &kp F6      &kp F7      &kp F8            &tog NUM
+    &kp COMMA      &kp PERIOD        &kp N1         &kp N2  &kp N3      &kp ASTRK       &kp EQUAL               &trans      &kp PG_DN   &kp F1      &kp F2      &kp F3      &kp F4            &kp PG_DN
+    &kp C_PREV     &kp C_PLAY_PAUSE  &kp C_NEXT     &trans  &trans      &kp LEFT_ALT    &trans                  &kp HOME    &trans      &kp END     &trans      &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT
 )
 
 ZMK_LAYER(symbol_layer,
-    &kp INS     &kp EXCL  &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT                                       &kp CARET     &kp AMPS   &kp ASTRK  &kp LPAR   &kp RPAR   &kp DEL
-    &caps_word  &kp BSLH  &kp MINUS  &kp EQUAL  &kp LBKT    &kp RBKT                                          &kp C_VOL_UP  &kp RSHFT  &kp RCTRL  &kp LALT   &kp RGUI   &trans
-    &trans      &kp PIPE  &kp UNDER  &kp PLUS   &kp LBRC    &kp RBRC     &kp C_PP                 &kp C_MUTE  &kp C_VOL_DN  &kp N0     &kp N1     &kp N2     &none      &trans
-    &none       &none     &trans                &trans      &trans       &trans    &mo SYS  &trans  &trans      &trans        &trans                &kp RCTRL  &kp K_APP  &sk RALT
+    &kp INS     &kp EXCL  &kp AT        &kp HASH    &kp DOLLAR      &kp PERCENT                                     &kp CARET       &kp AMPS        &kp ASTRK   &kp LPAR   &kp RPAR   &kp DEL
+    &caps_word  &kp BSLH  &kp MINUS     &kp EQUAL   &kp LBKT        &kp RBKT                                        &kp C_VOL_UP    &kp RSHFT       &kp RCTRL   &kp LALT   &kp RGUI   &trans
+    &trans      &kp PIPE  &kp UNDER     &kp PLUS    &kp LBRC        &kp RBRC    &kp C_PP                &kp C_MUTE  &kp C_VOL_DN    &kp N0          &kp N1      &kp N2     &none      &trans
+    &none       &none     &trans        &trans      &trans          &trans      &mo SYS                 &trans      &trans          &trans          &trans      &kp RCTRL  &kp K_APP  &sk RALT
 )
 
 ZMK_LAYER(system_layer,
@@ -182,15 +180,15 @@ ZMK_LAYER(system_layer,
 )
 
 ZMK_LAYER(windows_layer,
-    &trans  &kp LA(F4)  &kp LG(D)   &kp LG(E)   &kp LG(LC(LA(LS(LESS_THAN))))  &kp LG(LC(LA(LS(GREATER_THAN))))                                                        &trans  &kp LG(LC(LA(N1)))  &kp LG(LA(N2))  &kp LG(LC(LA(N3)))      &kp LG(LC(LA(N4)))      &kp LG(LC(LS(LA(LEFT))))
-    &trans  &trans      &kp LG(N1)  &kp LG(N2)  &kp LG(N3)                     &kp LG(N4)                                                                              &trans  &kp LG(H)           &kp LG(J)       &kp LG(K)               &kp LG(L)               &kp LG(LC(LS(RIGHT)))
-    &trans  &trans      &trans      &trans      &mt LC(F4) LG(LC(D))           &trans                            &kp DOUBLE_QUOTES                             &trans  &trans  &trans              &trans          &trans                  &kp LG(LS(LA(LC(N8))))  &trans
-    &trans  &trans      &trans                  &trans                         &kp LG(LC(LEFT))                  &kp LA(SPACE)      &kp LC(LG(RIGHT))  &trans  &trans  &trans  &trans                              &kp LG(LA(LS(LC(N4))))  &kp LG(LS(LC(LA(N2))))  &kp LG(LA(LS(LC(N6))))
+    &trans  &kp LA(F4)  &kp LG(D)   &kp LG(E)   &kp LG(LC(LA(LS(LESS_THAN))))   &kp LG(LC(LA(LS(GREATER_THAN))))                                &trans  &kp LG(LC(LA(N1)))  &kp LG(LA(N2))      &kp LG(LC(LA(N3)))      &kp LG(LC(LA(N4)))      &kp LG(LC(LS(LA(LEFT))))
+    &trans  &trans      &kp LG(N1)  &kp LG(N2)  &kp LG(N3)                      &kp LG(N4)                                                      &trans  &kp LG(H)           &kp LG(J)           &kp LG(K)               &kp LG(L)               &kp LG(LC(LS(RIGHT)))
+    &trans  &trans      &trans      &trans      &mt LC(F4) LG(LC(D))            &trans              &kp DOUBLE_QUOTES                   &trans  &trans  &trans              &trans              &trans                  &kp LG(LS(LA(LC(N8))))  &trans
+    &trans  &trans      &trans      &trans      &kp LG(LC(LEFT))                &kp LA(SPACE)       &kp LC(LG(RIGHT))                   &trans  &trans  &trans              &trans              &kp LG(LA(LS(LC(N4))))  &kp LG(LS(LC(LA(N2))))  &kp LG(LA(LS(LC(N6))))
 )
 
 ZMK_LAYER(gaming_layer,
-    &kp GRAVE          &kp LEFT_ALT    &kp Q         &kp W  &kp E              &kp R                                                                    &kp J         &kp F9       &kp F10  &kp F11   &kp F12   &kp BSPC
-    &kp TAB            &kp LEFT_SHIFT  &kp A         &kp S  &kp D              &kp F                                                                    &kp C_VOL_UP  &kp F5       &kp F6   &kp F7    &kp F8    &kp ENTER
-    &kp LS(LA(LCTRL))  &kp LCTRL       &kp Z         &kp X  &kp C              &kp V  &mt LS(LEFT_ALT) APOSTROPHE                     &kp C_AL_MUSIC    &kp C_VOL_DN  &kp F1       &kp F2   &kp F3    &kp UP    &kp F4
-    &mo SYM              &kp ESC         &kp LEFT_WIN         &kp LS(LA(LCTRL))  &mo NUM  &kp SPACE                    &kp I  &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT    &kp C_PAUSE           &kp LEFT  &kp DOWN  &kp RIGHT
+    &kp GRAVE           &kp LEFT_ALT    &kp Q           &kp W               &kp E               &kp R                                                           &kp J               &kp F9          &kp F10         &kp F11     &kp F12   &kp BSPC
+    &kp TAB             &kp LEFT_SHIFT  &kp A           &kp S               &kp D               &kp F                                                           &kp C_VOL_UP        &kp F5          &kp F6          &kp F7      &kp F8    &kp ENTER
+    &kp LS(LA(LCTRL))   &kp LCTRL       &kp Z           &kp X               &kp C               &kp V       &mt LS(LEFT_ALT) APOSTROPHE         &kp C_AL_MUSIC  &kp C_VOL_DN        &kp F1          &kp F2          &kp F3      &kp UP    &kp F4
+    &mo SYM             &kp ESC         &kp LEFT_WIN    &kp LS(LA(LCTRL))   &mo NUM             &kp SPACE   &kp I                               &kp C_PREV      &kp C_PLAY_PAUSE    &kp C_NEXT      &kp C_PAUSE     &kp LEFT    &kp DOWN  &kp RIGHT
 )
