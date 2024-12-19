@@ -145,18 +145,18 @@ ZMK_UNICODE_SINGLE(sym_emdash, N2, N0, N1, N4)  // —
 */
 
 ZMK_LAYER(base,
-    &lt WIN GRAVE       &kp Q                   &kp W           &kp F           &kp P               &kp B                                                       &kp J       &kp L       &kp U       &kp Y       &kp SEMI    &kp BSPC
-    &mt LG(TAB) TAB     &hml LGUI A             &hml LALT R     &hml LSHFT S    &hml LCTRL T        &kp G                                                       &kp M       &kp N       &kp E       &kp I       &kp O       &kp ENTER
-    &kp BACKSPACE       &kp Z                   &kp X           &kp C           &kp D               &kp V               &mt LALT APOSTROPHE         &kp SLASH   &kp K       &kp H       &kp COMMA   &kp PERIOD  &kp UP      &kp RSHFT
-    &kp DELETE          &mt TASK_VIEW ESCAPE    &kp LGUI        MEH             &lt NUM LBKT          &mt LSHFT SPACE     &mt LCTRL RBKT              &mo SYM       &kp SPACE   &kp LALT    &kp RGUI    &kp LEFT    &kp DOWN    &kp RIGHT
+    &lt WIN GRAVE       &kp Q                   &kp W           &kp F               &kp P               &kp B                                                       &kp J       &kp L       &kp U       &kp Y       &kp SEMI    &kp BSPC
+    &mt LG(TAB) TAB     &hml LGUI A             &hml LALT R     &hml LSHFT S        &hml LCTRL T        &kp G                                                       &kp M       &kp N       &kp E       &kp I       &kp O       &kp ENTER
+    &kp BACKSPACE       &kp Z                   &kp X           &kp C               &kp D               &kp V               &mt LALT APOSTROPHE         &kp SLASH   &kp K       &kp H       &kp COMMA   &kp PERIOD  &kp UP      &kp RSHFT
+    &kp DELETE          &mt TASK_VIEW ESCAPE    &kp LGUI        &kp LC(LA(LSHFT))   &lt NUM LBKT        &mt LSHFT SPACE     &mt LCTRL RBKT              &mo SYM     &kp SPACE   &kp LALT    &kp RGUI    &kp LEFT    &kp DOWN    &kp RIGHT
 )
 
 
 ZMK_LAYER(number,
-    &kp BACKSPACE  &kp PLUS          &kp N7      &kp N8  &kp N9  &kp N0                                             &kp PG_UP  &kp F9  &kp F10  &kp F11     &kp F12           &kp K_CALC
-    &kp BACKSLASH  &kp MINUS         &kp N4      &kp N5  &kp N6  &kp SLASH                                          &kp PG_UP  &kp F5  &kp F6   &kp F7      &kp F8            &tog NUM
-    &kp COMMA      &kp PERIOD        &kp N1      &kp N2  &kp N3  &kp ASTRK  &kp EQUAL                       &trans  &kp PG_DN  &kp F1  &kp F2   &kp F3      &kp F4            &kp PG_DN
-    &kp C_PREV     &kp C_PLAY_PAUSE  &kp C_NEXT          &trans  &trans     &kp LEFT_ALT  &trans  &kp HOME  &trans  &kp END    &trans           &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT
+    &kp BACKSPACE  &kp PLUS          &kp N7         &kp N8  &kp N9      &kp N0                                             &kp PG_UP  &kp F9  &kp F10  &kp F11     &kp F12           &kp K_CALC
+    &kp BACKSLASH  &kp MINUS         &kp N4         &kp N5  &kp N6      &kp SLASH                                              &kp PG_UP  &kp F5  &kp F6   &kp F7      &kp F8            &tog NUM
+    &kp COMMA      &kp PERIOD        &kp N1         &kp N2  &kp N3      &kp ASTRK  &kp EQUAL                        &trans      &kp PG_DN  &kp F1  &kp F2   &kp F3      &kp F4            &kp PG_DN
+    &kp C_PREV     &kp C_PLAY_PAUSE  &kp C_NEXT     &trans  &trans      &kp LEFT_ALT  &trans  &kp HOME  &trans      &kp END     &trans           &kp C_PREV  &kp C_PLAY_PAUSE  &kp C_NEXT
 )
 
 ZMK_LAYER(symbol,
